@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="search-bar">
+    <form method="POST" action="{{ url_for('search') }}">
+        <input type="text" name="query" placeholder="Search songs...">
+        <button type="submit">Search</button>
+    </form>
+</div>
+{% if videos %}
+    <div class="video-grid">
+        {% for video in videos %}
+            <div class="video-card">
+                <img src="{{ video.thumbnail }}" alt="Thumbnail">
+                <h3>{{ video.title }}</h3>
+                <a href="{{ url_for('play', video_id=video.id) }}">Play</a>
+                <a href="{{ url_for('share_redirect', share_id=video.id) }}">Share</a>
+            </div>
+        {% endfor %}
+    </div>
+{% endif %}
+{% if play and audio_url %}
+    <div class="player-section">
+        <h2>{{ title }}</h2>
+        <audio src="{{ audio_url }}" controls autoplay></audio>
+        <button onclick="playAll()">Play All</button>
+    </div>
+{% endif %}
+{% endblock %}

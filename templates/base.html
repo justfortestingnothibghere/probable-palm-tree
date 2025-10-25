@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Team X Og{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="icon" href="https://via.placeholder.com/32/FF6B6B/FFFFFF?text=TXO">
+</head>
+<body>
+    <nav>
+        <img src="https://via.placeholder.com/200x50/FF6B6B/FFFFFF?text=Team+X+Og" alt="Logo" class="logo">
+        {% if current_user.is_authenticated %}
+            <a href="{{ url_for('logout') }}">Logout</a>
+        {% endif %}
+    </nav>
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <div class="flash-messages">
+                {% for message in messages %}
+                    <p>{{ message }}</p>
+                {% endfor %}
+            </div>
+        {% endif %}
+    {% endwith %}
+    {% block content %}{% endblock %}
+    <audio id="player" controls></audio>
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>

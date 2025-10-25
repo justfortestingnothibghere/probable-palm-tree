@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block content %}
+<div id="notification" class="popup">
+    <span class="close" onclick="closeNotif()">&times;</span>
+    <p>Join Telegram Channel = @Team_X_Og</p>
+    <a href="https://t.me/Team_X_Og" target="_blank"><button>Join</button></a>
+</div>
+<iframe src="https://www.youtube.com/embed/{{ video_id }}" style="display:none;"></iframe>
+<script>document.getElementById('player').src = '{{ audio_url }}'; document.getElementById('player').play();</script>
+{% endblock %}
