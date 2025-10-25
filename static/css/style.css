@@ -1,0 +1,165 @@
+/* 3D Neumorphism Theme */
+body {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    perspective: 1000px;
+    color: #fff;
+}
+
+nav {
+    background: rgba(0, 0, 0, 0.8);
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    transform: rotateY(10deg);
+    transition: transform 0.3s;
+}
+.logo:hover {
+    transform: rotateY(0deg);
+}
+
+.search-bar {
+    text-align: center;
+    margin: 20px;
+}
+.search-bar input {
+    padding: 10px;
+    border-radius: 20px;
+    border: none;
+    width: 300px;
+    box-shadow: inset 5px 5px 10px rgba(0,0,0,0.2), inset -5px -5px 10px rgba(255,255,255,0.2);
+}
+.search-bar button {
+    padding: 10px 20px;
+    border-radius: 20px;
+    border: none;
+    background: #FF6B6B;
+    color: white;
+    cursor: pointer;
+}
+
+.video-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
+.video-card {
+    background: #fff;
+    border-radius: 20px;
+    box-shadow: 10px 10px 20px rgba(0,0,0,0.2), -10px -10px 20px rgba(255,255,255,0.2);
+    transform: translateZ(20px);
+    transition: transform 0.3s;
+    padding: 10px;
+    text-align: center;
+}
+.video-card:hover {
+    transform: translateZ(40px) rotateX(5deg);
+}
+.video-card img {
+    width: 100%;
+    border-radius: 10px;
+}
+.video-card a {
+    display: inline-block;
+    margin: 5px;
+    color: #FF6B6B;
+    text-decoration: none;
+}
+
+.player-section {
+    text-align: center;
+    margin: 20px;
+}
+#player {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background: #000;
+    transform: rotateX(10deg);
+    box-shadow: 0 -5px 10px rgba(0,0,0,0.5);
+}
+
+.popup {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    transform: translateZ(50px);
+    animation: slideIn 0.5s ease;
+}
+@keyframes slideIn {
+    from { transform: translateX(100%) translateZ(50px); }
+    to { transform: translateX(0) translateZ(50px); }
+}
+.popup .close {
+    cursor: pointer;
+    font-size: 20px;
+}
+.popup button {
+    background: #FF6B6B;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.form-container {
+    text-align: center;
+    margin: 50px;
+}
+.form-container input {
+    display: block;
+    margin: 10px auto;
+    padding: 10px;
+    border-radius: 20px;
+    border: none;
+    width: 200px;
+}
+.form-container button {
+    background: #FF6B6B;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.admin-panel {
+    margin: 20px;
+}
+.admin-panel table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 10px 10px 20px rgba(0,0,0,0.2);
+}
+.admin-panel th, .admin-panel td {
+    padding: 10px;
+    text-align: left;
+}
+
+.error-3d {
+    text-align: center;
+    margin: 50px;
+    animation: float 2s infinite;
+}
+@keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
+}
+.error-3d h1 {
+    font-size: 3em;
+    text-shadow: 5px 5px 10px rgba(0,0,0,0.5);
+}
